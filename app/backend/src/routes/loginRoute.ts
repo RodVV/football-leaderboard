@@ -11,7 +11,7 @@ const usersController = new UserController(usersService);
 loginRoute.post(
   '/login',
   loginValidation.verifyFields,
-  loginValidation.validEmail,
+  // loginValidation.validEmail,
   loginValidation.validUser,
   usersController.login,
 );
