@@ -8,8 +8,3 @@ export default function createToken(email: string) {
   const token = jwt.sign({ user: email }, JWT_SECRET, { algorithm: 'HS256', expiresIn: '1d' });
   return token;
 }
-
-// const verifyToken = (token: string) => {
-//   const payload = jwt.verify(token, JWT_SECRET);
-//   return payload;
-// };

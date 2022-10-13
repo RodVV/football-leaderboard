@@ -1,6 +1,8 @@
 import * as bcrypt from 'bcryptjs';
+// import IUser from '../helpers/interfaces/IUser';
 import User from '../database/models/User';
 import createToken from '../helpers/crypt/token';
+// import tokenValidation from '../middlewares/toke.validation';
 
 export default class UserService {
   constructor(private userModel: typeof User) {}
@@ -16,4 +18,8 @@ export default class UserService {
     const loginToken = createToken(findUser.email);
     return loginToken;
   }
+
+  // async validate(IUser: object): Promise<IUser> {
+  //   const isValid = await this.userModel.tokenValidation(IUser);
+  // }
 }
