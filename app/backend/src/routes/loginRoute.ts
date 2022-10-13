@@ -16,6 +16,6 @@ loginRoute.post(
   usersController.login,
 );
 
-loginRoute.get('/login/validate', usersController.validate);
+// loginRoute.get('/login/validate', usersController.validate);
 
 export default loginRoute;
