@@ -39,5 +39,10 @@ describe('/login', () => {
       expect(response.status).to.equal(400);
       expect(response.body).to.deep.equal({ message: 'All fields must be filled' });
     });
+    it('Deve retornar mensagem de erro se email nao for valido', async () => {
+      const response = await chai.request(app).post('/login').send({ ...loginMock, email: 'aaaaaaaaa' });
+      expect(response.status).to.equal(401);
+      expect(response.body).to.deep.equal({ message: 'Incorrect email or password' });
+    });
   });
  });

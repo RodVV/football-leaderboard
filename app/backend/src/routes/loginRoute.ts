@@ -8,6 +8,11 @@ const loginRoute = Router();
 const usersService = new UserService(User);
 const usersController = new UserController(usersService);
 
-loginRoute.post('/login', loginValidation.verifyFields, usersController.login);
+loginRoute.post(
+  '/login',
+  loginValidation.verifyFields,
+  loginValidation.validEmail,
+  usersController.login,
+);
 
 export default loginRoute;
