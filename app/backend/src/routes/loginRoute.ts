@@ -12,6 +12,7 @@ loginRoute.post(
   '/login',
   loginValidation.verifyFields,
   loginValidation.validEmail,
+  loginValidation.validUser,
   usersController.login,
 );
 
