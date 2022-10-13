@@ -24,8 +24,10 @@ module.exports = {
     password: {
       type: Sequelize.STRING,
       allowNull: false, 
-    },
-    time
+    },    
+   },
+   {
+    timestamps: false
    });
   
   },

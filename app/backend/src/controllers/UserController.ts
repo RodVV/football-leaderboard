@@ -10,7 +10,7 @@ export default class UserController {
     // if (!result) {
     //   return res.status(404).json({ message: '404' });
     // }
-    return res.status(200).json({ result });
+    return res.status(200).json({ token: result });
   };
 
   // async validate(req: Request, res: Response) {
