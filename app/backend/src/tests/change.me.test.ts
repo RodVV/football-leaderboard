@@ -24,5 +24,10 @@ describe('/login', () => {
       const response = await chai.request(app).post('/login').send(loginMock);
       expect(response.status).to.equal(200);
     });
+    it('Deve retornar um token', async () => {
+      const response = await chai.request(app).post('/login').send(loginMock);
+      expect(response.status).to.equal(200);
+      expect(response.body).to.have.property('token');
+    });
   });
  });
