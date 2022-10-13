@@ -29,5 +29,15 @@ describe('/login', () => {
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('token');
     });
+    it('Deve retornar mensagem de erro se email nao for preenchido', async () => {
+      const response = await chai.request(app).post('/login').send({ ...loginMock, email: '' });
+      expect(response.status).to.equal(400);
+      expect(response.body).to.deep.equal({ message: 'All fields must be filled' });
+    });
+    it('Deve retornar mensagem de erro se password nao for preenchido', async () => {
+      const response = await chai.request(app).post('/login').send({ ...loginMock, password: '' });
+      expect(response.status).to.equal(400);
+      expect(response.body).to.deep.equal({ message: 'All fields must be filled' });
+    });
   });
  });
