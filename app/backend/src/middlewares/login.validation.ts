@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import * as bcrypt from 'bcryptjs';
 import User from '../database/models/User';
 
 const incorrectFields = 'Incorrect email or password';
@@ -32,7 +33,8 @@ const loginValidation = {
     if (!findUser) {
       return res.status(401).json({ message: incorrectFields });
     }
-    if (findUser.password !== password) {
+    const cryptPassword = bcrypt.compareSync(password, findUser.password);
+    if (!cryptPassword) {
       return res.status(401).json({ message: incorrectFields });
     }
     if (findUser.email !== email) {
