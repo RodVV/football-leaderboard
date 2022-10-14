@@ -1,5 +1,5 @@
 import { Router } from 'express';
-// import loginValidation from '../middlewares/login.validation';
+import loginValidation from '../middlewares/login.validation';
 import UserService from '../services/UserService';
 import UserController from '../controllers/UserController';
 // import User from '../database/models/User';
@@ -10,7 +10,7 @@ const usersController = new UserController(usersService);
 
 loginRoute.post(
   '/',
-  // loginValidation.verifyFields,
+  loginValidation.verifyFields,
   // loginValidation.validEmail,
   // loginValidation.validUser,
   usersController.login,
