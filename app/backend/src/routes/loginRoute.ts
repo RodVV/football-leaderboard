@@ -15,6 +15,7 @@ loginRoute.post(
   loginValidation.validUser,
   usersController.login,
 );
+loginRoute.get('/validate', usersController.validate);
 
 // loginRoute.get('/login/validate', usersController.validate);
 
