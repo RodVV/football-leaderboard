@@ -21,8 +21,12 @@ describe('/login', () => {
       sinon.restore();
     });
 
+    before(() => {
+      sinon.stub(User, 'findOne').returns(userMock as any);
+    });
+
     it('Deve efetuar login com sucesso', async () => {
-      const response = await chai.request(app).post('/login').send(userMock);
+      const response = await chai.request(app).post('/login').send(userMock.email && userMock.password);
       expect(response.status).to.equal(200);
     });
     it('Deve retornar um token', async () => {

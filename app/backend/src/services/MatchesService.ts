@@ -1,5 +1,6 @@
 import Team from '../database/models/Team';
 import Matches from '../database/models/Matches';
+// import IMatches from '../helpers/interfaces/IMatches';
 
 export default class MatchesService {
   model: Matches;
@@ -8,17 +9,17 @@ export default class MatchesService {
     this.model = new Matches();
   }
 
-  public getAll = async () => {
+  public getAll = async (): Promise<Matches[] | null> => {
     const matches = Matches.findAll({
       include: [{
         model: Team,
-        as: 'teamHome',
-        attributes: ['teamName'],
+        as: 'teamHome' as string,
+        attributes: { include: ['teamName'], exclude: ['id'] },
       },
       {
         model: Team,
-        as: 'teamAway',
-        attributes: ['teamName'],
+        as: 'teamAway' as string,
+        attributes: { include: ['teamName'], exclude: ['id'] },
       }],
     });
     if (!matches) return null;
