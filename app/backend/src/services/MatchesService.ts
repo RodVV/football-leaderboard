@@ -26,9 +26,16 @@ export default class MatchesService {
     return matches;
   };
 
-  // public getId = async (id: number) => {
-  //   const findTeam = Team.findByPk(id);
-  //   if (!findTeam) return null;
-  //   return findTeam;
-  // };
+  public postMatch = async (match: {
+    id?: number;
+    homeTeam: number;
+    homeTeamGoals: number;
+    awayTeam: number;
+    awayTeamGoals: number;
+    inProgress: boolean;
+  }) => {
+    const newMatch = await Matches.create({ match });
+    // if (!newMatch) return null;
+    return newMatch;
+  };
 }
