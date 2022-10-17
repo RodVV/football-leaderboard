@@ -3,4 +3,8 @@ interface ITeam {
   teamName: string;
 }
 
-export default ITeam;
+interface ITeamName {
+  teamName: string;
+}
+
+export { ITeam, ITeamName };

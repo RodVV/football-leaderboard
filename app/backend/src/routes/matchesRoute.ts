@@ -13,7 +13,7 @@ matchesRoute.get('/', matchesController.getAll);
 matchesRoute.post(
   '/',
   matchValidations.verifyTeams,
-  // matchValidations.validToken,
+  matchValidations.validToken,
   matchesController.postMatch,
 );
 matchesRoute.patch('/:id/finish', matchesController.finishMatch);

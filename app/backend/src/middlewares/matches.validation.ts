@@ -27,19 +27,20 @@ class ValidMatch {
     next();
   };
 
-  public async validToken(req: Request, res: Response, next: NextFunction) {
+  public validToken = async (req: Request, res: Response, next: NextFunction) => {
     const { authorization } = req.headers as IAuthorization;
     try {
       if (!authorization) {
         return res.status(401).json({ message: 'Token must be a valid token' });
       }
+      // console.log(this);
       this.jwtModel.verify(authorization, JWT_SECRET);
       next();
     } catch (error) {
       return res.status(401).json({ message: 'Token must be a valid token' });
     }
     // const validUser = await User.findOne({ where: isValid.match });
-  }
+  };
 }
 
 export default ValidMatch;

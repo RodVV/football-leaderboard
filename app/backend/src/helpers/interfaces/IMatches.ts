@@ -1,4 +1,4 @@
-import ITeam from './ITeam';
+import { ITeam } from './ITeam';
 
 interface IMatches {
   id?: number;
