@@ -10,7 +10,11 @@ const matchesController = new MatchesController(matchesService);
 const matchValidations = new ValidMatch();
 
 matchesRoute.get('/', matchesController.getAll);
-matchesRoute.post('/', matchValidations.verifyTeams, matchesController.postMatch);
+matchesRoute.post(
+  '/',
+  matchValidations.verifyTeams,
+  matchesController.postMatch,
+);
 matchesRoute.patch('/:id/finish', matchesController.finishMatch);
 
 export default matchesRoute;
