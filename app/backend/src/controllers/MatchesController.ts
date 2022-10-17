@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import MatchesService from '../services/MatchesService';
-import UserService from '../services/UserService';
+// import UserService from '../services/UserService';
 
 export default class MatchesController {
   constructor(
     private matchesService = new MatchesService(),
-    private userService = new UserService(),
+    // private userService = new UserService(),
   ) {}
 
   public getAll = async (req: Request, res: Response) => {
