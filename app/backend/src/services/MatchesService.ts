@@ -3,14 +3,10 @@ import Matches from '../database/models/Matches';
 // import IMatches from '../helpers/interfaces/IMatches';
 
 export default class MatchesService {
-  model: Matches;
-
-  constructor() {
-    this.model = new Matches();
-  }
+  private model = Matches;
 
   public getAll = async (): Promise<Matches[] | null> => {
-    const matches = Matches.findAll({
+    const matches = await this.model.findAll({
       include: [{
         model: Team,
         as: 'teamHome' as string,
@@ -26,15 +22,8 @@ export default class MatchesService {
     return matches;
   };
 
-  public postMatch = async (match: {
-    id?: number;
-    homeTeam: number;
-    homeTeamGoals: number;
-    awayTeam: number;
-    awayTeamGoals: number;
-    inProgress: boolean;
-  }) => {
-    const newMatch = await Matches.create({ match });
+  public postMatch = async (match: object) => {
+    const newMatch = await this.model.create(match);
     // if (!newMatch) return null;
     return newMatch;
   };

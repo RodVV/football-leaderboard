@@ -11,9 +11,9 @@
 // export default async function tokenValidation(header: string) {
 //   const isValid = jwt.verify(header, JWT_SECRET) as IUserPass;
 //   if (!isValid) return null;
-//   console.log(isValid);
-// const userPass = isValid;
-// const userPass = await User.findOne({ where: { isValid } });
-// if (!userPass) return null;
-// return userPass;
+//   // console.log(isValid);
+//   // const userPass = isValid;
+//   const userPass = await User.findOne({ where: { where: isValid.match } });
+//   if (!userPass) return null;
+//   return userPass;
 // }
