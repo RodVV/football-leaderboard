@@ -34,4 +34,12 @@ export default class MatchesService {
     const updateMatch = await finishedMatch.update({ inProgress: false });
     return updateMatch;
   };
+
+  public patchMatch = async (id: string, homeTeamGoals: number, awayTeamGoals: number)
+  : Promise<IMatches | null> => {
+    const inProgressMatch = await this.model.findByPk(id);
+    if (!inProgressMatch) return null;
+    const updateMatch = await inProgressMatch.update({ homeTeamGoals, awayTeamGoals });
+    return updateMatch;
+  };
 }

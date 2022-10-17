@@ -13,8 +13,10 @@ matchesRoute.get('/', matchesController.getAll);
 matchesRoute.post(
   '/',
   matchValidations.verifyTeams,
+  // matchValidations.validToken,
   matchesController.postMatch,
 );
 matchesRoute.patch('/:id/finish', matchesController.finishMatch);
+matchesRoute.patch('/:id', matchesController.patchMatch);
 
 export default matchesRoute;

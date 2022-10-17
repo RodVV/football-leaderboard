@@ -3,11 +3,13 @@ import * as jwt from 'jsonwebtoken';
 import IAuthorization from '../helpers/interfaces/IAuthorization';
 import 'dotenv/config';
 import Matches from '../database/models/Matches';
+import User from '../database/models/User';
 
-const JWT_SECRET = process.env.JWT_SECRET as string;
+const JWT_SECRET = process.env.JWT_SECRET as string || 'jwt_secret';
 
 class ValidMatch {
   private matchModel = Matches;
+  private userModel = User;
   private jwtModel = jwt;
 
   public verifyTeams = async (req: Request, res: Response, next: NextFunction):
@@ -28,11 +30,15 @@ class ValidMatch {
   public async validToken(req: Request, res: Response, next: NextFunction) {
     const { authorization } = req.headers as IAuthorization;
     try {
-      const isValid = this.jwtModel.verify(authorization, JWT_SECRET);
-      if (isValid) next();
+      if (!authorization) {
+        return res.status(401).json({ message: 'Token must be a valid token' });
+      }
+      this.jwtModel.verify(authorization, JWT_SECRET);
+      next();
     } catch (error) {
       return res.status(401).json({ message: 'Token must be a valid token' });
     }
+    // const validUser = await User.findOne({ where: isValid.match });
   }
 }
 
