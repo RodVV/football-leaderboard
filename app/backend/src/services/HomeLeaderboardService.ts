@@ -63,7 +63,7 @@ export default class HomeLeaderboardService {
     return teamHomeScore as IScoreboard;
   };
 
-  public homeLeaderboard = async () => {
+  public homeScoreBoard = async () => {
     const teams = [];
     const findAll = await this.teamsModel.findAll({ attributes: { exclude: ['id'] } });
     for (let i = 0; i < findAll.length; i += 1) {
