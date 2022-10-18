@@ -8,7 +8,9 @@ interface IScoreboard {
   goalsFavor: number;
   goalsOwn: number;
   goalsBalance: number;
-  efficiency: number;
+  efficiency: string;
 }
 
-export default IScoreboard;
+type TAllTeamsScore = [IScoreboard];
+
+export { TAllTeamsScore, IScoreboard };
