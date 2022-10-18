@@ -7,7 +7,7 @@ const leaderboardRoute = Router();
 const leaderboardService = new LeaderboardService();
 const leaderboardController = new LeaderboardController(leaderboardService);
 
-// leaderboardRoute.get('/', leaderboardController.getHomeMatchs);
+leaderboardRoute.get('/', leaderboardController.getLeaderboard);
 leaderboardRoute.get('/home', leaderboardController.getHomeScore);
 leaderboardRoute.get('/away', leaderboardController.getAwayScore);
 

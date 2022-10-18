@@ -33,4 +33,14 @@ export default class LeaderboardController {
       return res.status(404).json(error);
     }
   };
+
+  public getLeaderboard = async (req: Request, res: Response) => {
+    // const { teamName } = req.body;
+    try {
+      const result = await this.leaderboardService.leaderboard();
+      return res.status(200).json(result);
+    } catch (error) {
+      return res.status(404).json(error);
+    }
+  };
 }
