@@ -11,6 +11,8 @@ interface IScoreboard {
   efficiency: string;
 }
 
+type TScoreboard = IScoreboard;
+
 type TAllTeamsScore = [IScoreboard];
 
-export { TAllTeamsScore, IScoreboard };
+export { TAllTeamsScore, IScoreboard, TScoreboard };
