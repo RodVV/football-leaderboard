@@ -143,7 +143,7 @@ O que foi feito:
 
 
 
-# Endpoint `/matches` retorna os dados na tela de partidas no front-end.
+### Endpoint `/matches` retorna os dados na tela de partidas no front-end.
 
   - Rota `GET` e retorna uma lista de partidas;
 
