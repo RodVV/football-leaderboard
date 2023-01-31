@@ -53,7 +53,7 @@ export default class LeaderboardService {
           / ((home.totalGames + away.totalGames) * 3)) * 100).toFixed(2),
       };
     });
-    const sortBoard = await this.sortBoard(scoreboard);
-    return sortBoard;
+    const sortLeaderboard = await this.sortBoard(scoreboard);
+    return sortLeaderboard;
   };
 }
