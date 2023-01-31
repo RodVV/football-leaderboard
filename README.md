@@ -31,7 +31,7 @@ O que foi feito:
 
 
 
-## Seção 1: Users e Login
+ Seção 1: Users e Login
 
 
 
@@ -60,7 +60,7 @@ O que foi feito:
   ```
 
 
-  # Validacoes de login:
+   Validacoes de login:
 
 
   - Se o login não tiver o campo "email", o resultado retornado deverá ser a mensagem abaixo, com um status http `400`:
@@ -88,7 +88,7 @@ O que foi feito:
 
 
 
- # O endpoint `/login/validate` no back-end:
+  O endpoint `/login/validate` no back-end:
 
 
   - Rota `GET` que recebe um `header` com parâmetro `authorization`, onde fica armazenado o token gerado no login;
@@ -104,7 +104,7 @@ O que foi feito:
 ## Seção 2: Times
 
 
-# Endpoint `/teams` no back-end retorna todos os times corretamente
+ Endpoint `/teams` no back-end retorna todos os times corretamente
 
   - Rota `GET` com resposta com status `200` e com um `json` contendo o retorno no seguinte modelo:
 
@@ -127,7 +127,7 @@ O que foi feito:
 ```
 
 
-# Endpoint `/teams/:id` no back-end retorna dados de um time específico
+ Endpoint `/teams/:id` no back-end retorna dados de um time específico
 
   - Rota `GET` com resposta com status `200` e com um `json` contendo o retorno no seguinte modelo:
 
@@ -143,7 +143,7 @@ O que foi feito:
 
 
 
-### Endpoint `/matches` retorna os dados na tela de partidas no front-end.
+Endpoint `/matches` retorna os dados na tela de partidas no front-end.
 
   - Rota `GET` e retorna uma lista de partidas;
 
@@ -185,7 +185,7 @@ O que foi feito:
   -
 
 
-# O endpoint `/matches` torna possível filtrar as partidas em andamento na tela de partidas do front-end
+ O endpoint `/matches` torna possível filtrar as partidas em andamento na tela de partidas do front-end
 
   - Rota do tipo `GET` e retorna uma lista de partidas filtradas;
 
@@ -227,7 +227,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches` tambem filtra as partidas finalizadas na tela de partidas do front-end
+ Endpoint `/matches` tambem filtra as partidas finalizadas na tela de partidas do front-end
 
 
   - Rota do tipo `GET` e retornar uma lista de partidas filtradas;
@@ -273,7 +273,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches` tambem salva uma partida com o status de inProgress como true no banco de dados
+ Endpoint `/matches` tambem salva uma partida com o status de inProgress como true no banco de dados
 
   - Rota do tipo `POST` e retorna a partida inserida no banco de dados;
 
@@ -304,7 +304,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches/:id/finish` possibilita alterar o status inProgress de uma partida para false no banco de dados
+Endpoint `/matches/:id/finish` possibilita alterar o status inProgress de uma partida para false no banco de dados
 
   - Rota do tipo `PATCH`;
 
@@ -317,7 +317,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches` de forma que não seja insere uma partida com times iguais
+Endpoint `/matches` de forma que não seja insere uma partida com times iguais
 
   - Não deve ser possível criar uma partida com o mesmo time, por exemplo: Barcelona x Barcelona. Caso isso ocorra, deve-se retornar, com um status `401`, a seguinte mensagem::
 
@@ -326,7 +326,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches`  que não insere uma partida com um time que não existe na tabela teams
+Endpoint `/matches`  que não insere uma partida com um time que não existe na tabela teams
 
   - Caso algum dos times não esteja cadastrado no banco de dados, deve-se retornar, com um status `404,` a seguinte mensagem:
 
@@ -335,7 +335,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches` precisa de um token válido
+Endpoint `/matches` precisa de um token válido
 
   - Caso o token informado não seja válido, deve-se retornar, com um status `401`, a seguinte mensagem:
 
@@ -344,7 +344,7 @@ O que foi feito:
   ```
 
 
-# Endpoint `/matches/:id` possibilita atualizar partidas em andamento
+Endpoint `/matches/:id` possibilita atualizar partidas em andamento
 
   - Endpoint do tipo `PATCH`;
 
@@ -469,7 +469,7 @@ O que foi feito:
 
 
 
-# Endpoint `/leaderboard/home` filtra as classificações dos times `da casa` na tela de classificação do front-end com os dados iniciais do banco de dados
+Endpoint `/leaderboard/home` filtra as classificações dos times `da casa` na tela de classificação do front-end com os dados iniciais do banco de dados
 
   - Endpoint do tipo `GET`;
 
@@ -477,12 +477,12 @@ O que foi feito:
 
  
  
-# Endpoint `/leaderboard/home` filtra as classificações dos times da casa na tela de classificação do front-end, e atualiza a tabela ao inserir uma partida, ex: Corinthians 2 X 1 Internacional
+Endpoint `/leaderboard/home` filtra as classificações dos times da casa na tela de classificação do front-end, e atualiza a tabela ao inserir uma partida, ex: Corinthians 2 X 1 Internacional
 
   
   
 
-# Endpoint `/leaderboard/away`, filtra as classificações dos times quando visitantes na tela de classificação do front-end, com os dados iniciais do banco de dados
+Endpoint `/leaderboard/away`, filtra as classificações dos times quando visitantes na tela de classificação do front-end, com os dados iniciais do banco de dados
 
   - Do tipo `GET`;
 
@@ -490,14 +490,14 @@ O que foi feito:
 
 
 
-# Endpoint `/leaderboard/away` filtra as classificações dos times quando visitantes na tela de classificação do front-end e atualiza a tabela ao inserir uma partida, ex: Corinthians 2 X 1 Internacional
+Endpoint `/leaderboard/away` filtra as classificações dos times quando visitantes na tela de classificação do front-end e atualiza a tabela ao inserir uma partida, ex: Corinthians 2 X 1 Internacional
 
   
   
 
 
 
-# Endpoint `/leaderboard` filtra a classificação geral dos times na tela de classificação do front-end com os dados iniciais do banco de dados
+Endpoint `/leaderboard` filtra a classificação geral dos times na tela de classificação do front-end com os dados iniciais do banco de dados
 
   - tipo `GET`;
 
@@ -507,10 +507,10 @@ O que foi feito:
 
 
 
-# Endpoint /leaderboard filtra a classificação geral dos times na tela de classificação do front-end e atualizar a tabela ao inserir a partida uma nova partida, ex: Flamengo 3 X 0 Napoli-SC
+Endpoint /leaderboard filtra a classificação geral dos times na tela de classificação do front-end e atualizar a tabela ao inserir a partida uma nova partida, ex: Flamengo 3 X 0 Napoli-SC
 
 
 
-# Endpoint /leaderboard filtra a classificação geral dos times na tela de classificação do front-end e atualiza a tabela ao inserir uma partida, ex: Minas Brasília 1 X 0 Ferroviária
+Endpoint /leaderboard filtra a classificação geral dos times na tela de classificação do front-end e atualiza a tabela ao inserir uma partida, ex: Minas Brasília 1 X 0 Ferroviária
 
   
