@@ -1,4 +1,4 @@
-  Projeto individual onde coloquei em pratica conhecimentos de typescript no backend, sequelize e docker. Somente o backend foi feito por mim.
+  Projeto individual onde coloquei em pratica conhecimentos de javascript no backend, sequelize e docker. Somente o backend foi feito por mim.
   
   
   O `TFC` é um site informativo sobre partidas e classificações de futebol! 
